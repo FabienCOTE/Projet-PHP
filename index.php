@@ -13,7 +13,7 @@
         <?php
         $fichier = 'source.xml';
         $xml = simplexml_load_file($fichier);
-
+        var_dump($xml);
         foreach ($xml->page as $pages) {
             echo 'Menu :' . utf8_decode($pages->menu) . '<br/>';
             echo 'Title :' . $pages->title . '<br/>';
@@ -29,68 +29,28 @@
         <footer class="page-footer font-small stylish-color-dark pt-4 fcolor">
             <div class="container text-center text-md-left">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 mx-auto ">
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">E-Games</h5>
-                        <p>E-Games, le spécialiste de la vente de jeux en ligne ! Achetez tout vos jeux au
-                            meilleur prix et avec un service client garanti !<br /> Nous nous trouvons au 2 rue Dombasle,
-                            au Havre, venez nous rendre visite !</p>
+                    <div class="col-lg-4 col-md-4 mx-auto">
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">A propos</h5>
+                        <p>Travaux de rénovation, Ocordo Travaux est une agence de travaux spécialisée dans l’externalisation du service commercial d'artisans du bâtiment et d’entreprises locales du bâtiment spécialisées dans les travaux de rénovation et de construction d’extensions. Nous avons l'expérience de plus de 300 projets de rénovation sur Nantes et plus de 3.000 en France.</p>
                     </div>
+                    <hr class="clearfix w-100 d-md-none">
+                    <div class="col-lg-3 col-md-2 mx-auto tcolor">
+                        <!--Maps Google-->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10840.441212216989!2d-1.562078!3d47.214424!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x10a23dc1d980bca7!2sOcordo+Travaux+Nantes!5e0!3m2!1sfr!2sfr!4v1434122059096" width="250" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                    <!--Séparation-->
                     <hr class="clearfix w-100 d-md-none">
                     <div class="col-lg-3 col-md-2 mx-auto ">
-                        <!--Maps Google-->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2592.0259523995096!2d0.13147335073038988!3d49.48401676430452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e02e55af007f11%3A0xcb679803210d6c5c!2s2+Rue+de+Dombasle%2C+76600+Le+Havre!5e0!3m2!1sfr!2sfr!4v1539862615583" width="250" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    </div>
-                    <!--Séparation-->
-                    <hr class="clearfix w-100 d-md-none">
-                    <div class="col-lg-1 col-md-2 mx-auto ">
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Jeux</h5>
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Menu</h5>
                         <ul class="list-unstyled">
-                            <li>
-                                <a href="#!">Aventure</a>
-                            </li>
-                            <li>
-                                <a href="#!">Action</a>
-                            </li>
-                            <li>
-                                <a href="#!">RPG</a>
-                            </li>
-                            <li>
-                                <a href="#!">FPS</a>
-                            </li>
-                            <li>
-                                <a href="#!">Stratégie</a>
-                            </li>
+                            <?php
+                             foreach ($xml->page as $pages){ ?>
+                            <li><a href="<?= $pages->attributes(); ?>"><?= $pages->menu; ?></a></li>
+                             <?php } ?>
                         </ul>
                     </div>
-                    <!--Séparation-->
-                    <hr class="clearfix w-100 d-md-none">
-                    <div class="col-lg-2 col-md-2 mx-auto ">
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Mon compte</h5>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!">Panier</a>
-                            </li>
-                            <li>
-                                <a href="#!">Profil</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--Séparation-->
-            <hr class="tcolor">
-            <!--Bouton Newsletter-->
-            <ul class="list-unstyled list-inline text-center py-2">
-                <li class="list-inline-item">
-                    <h5 class="mb-1">Inscrivez-vous à la newsletter !</h5>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#!" id="btnrad" class="btn btn-danger btn-rounded btncolor">Inscription</a>
-                </li>
-            </ul>
-            <!--Séparation-->
-            <hr class="tcolor">
-            <!--Vignettes réseaux sociaux-->
+                    <!--Vignettes réseaux sociaux-->
+                    <div class="col-12">
             <ul class="list-unstyled list-inline text-center">
                 <li class="list-inline-item">
                     <a href="#">
@@ -108,7 +68,8 @@
                     </a>
                 </li>
             </ul>
-            <p class="ptext">Made with &hearts; by team 14</p>
+            <p class="ptext text-center">Made with &hearts; by team 14</p>
+                    </div>
         </footer>
     </body>
 </html>

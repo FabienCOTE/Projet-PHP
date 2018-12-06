@@ -1,60 +1,66 @@
 /*FOOTER CSS*/
 /*Couleur footer (back et police)*/
 .page-footer {
-  padding-top: 1.5rem;
+    padding-top: 1.5rem;
 }
- 
+
 .fcolor {
-  background-color:  #282727;
-  color:  #ffffff;
-  }
- 
-  a {
-  color: white;
-  text-decoration: none;
-  }
- 
-  a:hover {
-  color: white;
-  text-decoration: underline;
-  }
- 
+    background-color:  #282727;
+    color:  #ffffff;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
 /*Radius bouton*/
 #btnrad {
-  border-radius: 10px;
+    border-radius: 10px;
 }
- 
+
 .btncolor {
-  background-color: #ea4335;
-  color: white;
+    background-color: #ea4335;
+    color: white;
 }
- 
- 
+
+
 /*Maps Google*/
- 
- 
- 
+
+
+
 /*Partie Social Media*/
- 
- 
+
+
 /*Couleur et forme transitions*/
 .tcolor {
-  background-color: #ffffff;
+    border-width: 3px; 
+    border-style: solid; 
+    -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(rgba(0, 0, 0, 0))) 1 100%; 
+    -webkit-border-image: -webkit-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%; 
+    -moz-border-image: -moz-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%; 
+    -o-border-image: -o-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%; 
+    border-image: linear-gradient(to bottom, white, rgba(0, 0, 0, 0)) 1 100%;
 }
- 
- 
+
+
 hr {
     display: block;
     margin-left: 400px;
-  margin-right: 400px;
+    margin-right: 400px;
 }
- 
+
 /*Mise en forme paragraphe*/
 .ptext {
-  text-align: left;
-  font-size: 0.8rem;
-  margin-bottom: 0;
+    text-align: left;
+    font-size: 0.8rem;
+    margin-bottom: 0;
 }
- 
- 
+
+
 /*FIN FOOTER CSS*/
