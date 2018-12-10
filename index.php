@@ -1,3 +1,13 @@
+<?php
+if (isset($_GET['page'])) {
+    $page = intval(htmlspecialchars($_GET['page']));
+    echo $page;
+} else {
+    $page = 0;
+}
+$fichier = 'source.xml';
+$xml = simplexml_load_file($fichier);
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -6,109 +16,93 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+        <!-- Material Design Bootsrap -->
+        <link rel="stylesheet" href="assets/css/mdb.min.css" />
         <link rel="stylesheet" href="assets/css/style.css" />
-        <title></title>
+        <title>Ocordo</title>
     </head>
     <body>
-        <?php
-        $fichier = 'source.xml';
-        $xml = simplexml_load_file($fichier);
-
-        foreach ($xml->page as $pages) {
-            echo 'Menu :' . utf8_decode($pages->menu) . '<br/>';
-            echo 'Title :' . $pages->title . '<br/>';
-            foreach ($pages->attributes() as $attribute => $valeur) {
-                echo $attribute . ' = ' . $valeur;
-            }
-            echo 'Content : ' . $pages->content . '<br/>';
-        }
-
-        //Attribute;
-        echo $xml->page->attributes();
-        ?>
-        <footer class="page-footer font-small stylish-color-dark pt-4 fcolor">
-            <div class="container text-center text-md-left">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark ocordo-color fixed-top mx-auto">
+                <a class="navbar-brand mr-auto" href="page0.html"><img src="assets/img/logo.png" alt="logo"/></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="basicExampleNav">
+                    <div class="mr-auto"></div>
+                    <ul class="navbar-nav">
+                        <?php foreach ($xml->page as $pages) { ?>
+                            <li class="nav-item mr-3">
+                                <a class="nav-link" href="page<?= $pages->attributes() - 1; ?>.html"><?= $pages->menu; ?>
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div id="picture1"></div>
+        <div class="container content-page">
+            <?= $xml->page[$page]->content; ?>
+        </div>
+        <footer class="page-footer font-small mt-4 fcolor">
+            <div class="container-fluid text-center text-md-left">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 mx-auto ">
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">E-Games</h5>
-                        <p>E-Games, le spécialiste de la vente de jeux en ligne ! Achetez tout vos jeux au
-                            meilleur prix et avec un service client garanti !<br /> Nous nous trouvons au 2 rue Dombasle,
-                            au Havre, venez nous rendre visite !</p>
+                    <div class="col-lg-4 col-md-3 mx-auto">
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-center">A propos</h5>
+                        <p class="text-justify">Travaux de rénovation, Ocordo Travaux est une agence de travaux spécialisée dans l’externalisation du service commercial d'artisans du bâtiment et d’entreprises locales du bâtiment spécialisées dans les travaux de rénovation et de construction d’extensions. Nous avons l'expérience de plus de 300 projets de rénovation sur Nantes et plus de 3.000 en France.</p>
                     </div>
                     <hr class="clearfix w-100 d-md-none">
-                    <div class="col-lg-3 col-md-2 mx-auto ">
+                    <div class="col-lg-4 col-md-6 mx-auto tcolor text-center">
                         <!--Maps Google-->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2592.0259523995096!2d0.13147335073038988!3d49.48401676430452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e02e55af007f11%3A0xcb679803210d6c5c!2s2+Rue+de+Dombasle%2C+76600+Le+Havre!5e0!3m2!1sfr!2sfr!4v1539862615583" width="250" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10840.441212216989!2d-1.562078!3d47.214424!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x10a23dc1d980bca7!2sOcordo+Travaux+Nantes!5e0!3m2!1sfr!2sfr!4v1434122059096" width="250" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                     <!--Séparation-->
                     <hr class="clearfix w-100 d-md-none">
-                    <div class="col-lg-1 col-md-2 mx-auto ">
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Jeux</h5>
+                    <div class="col-lg-4 col-md-3 mx-auto text-center">
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Menu</h5>
                         <ul class="list-unstyled">
-                            <li>
-                                <a href="#!">Aventure</a>
-                            </li>
-                            <li>
-                                <a href="#!">Action</a>
-                            </li>
-                            <li>
-                                <a href="#!">RPG</a>
-                            </li>
-                            <li>
-                                <a href="#!">FPS</a>
-                            </li>
-                            <li>
-                                <a href="#!">Stratégie</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--Séparation-->
-                    <hr class="clearfix w-100 d-md-none">
-                    <div class="col-lg-2 col-md-2 mx-auto ">
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Mon compte</h5>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!">Panier</a>
-                            </li>
-                            <li>
-                                <a href="#!">Profil</a>
-                            </li>
+                            <?php foreach ($xml->page as $pages) { ?>
+                                <li><a href="<?= $pages->attributes(); ?>"><?= $pages->menu; ?></a></li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>
+                <div class="row">
+                    <!--Vignettes réseaux sociaux-->
+                    <div class="col-12">
+                        <ul class="list-unstyled list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <img src="assets/img/facebook.png">
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <img src="assets/img/twitter.png">
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <img src="assets/img/discord.png">
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="ptext text-center">Made by Losers</p>
+                    </div>
+                </div>
             </div>
-            <!--Séparation-->
-            <hr class="tcolor">
-            <!--Bouton Newsletter-->
-            <ul class="list-unstyled list-inline text-center py-2">
-                <li class="list-inline-item">
-                    <h5 class="mb-1">Inscrivez-vous à la newsletter !</h5>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#!" id="btnrad" class="btn btn-danger btn-rounded btncolor">Inscription</a>
-                </li>
-            </ul>
-            <!--Séparation-->
-            <hr class="tcolor">
-            <!--Vignettes réseaux sociaux-->
-            <ul class="list-unstyled list-inline text-center">
-                <li class="list-inline-item">
-                    <a href="#">
-                        <img src="assets/img/facebook.png">
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#">
-                        <img src="assets/img/twitter.png">
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#">
-                        <img src="assets/img/discord.png">
-                    </a>
-                </li>
-            </ul>
-            <p class="ptext">Made with &hearts; by team 14</p>
         </footer>
+        <!-- jQuery -->
+        <script src="./assets/js/jquery-3.3.1.min.js"></script>
+        <!-- Boostrap tooltops -->
+        <script src="./assets/js/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script src="./assets/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script src="./assets/js/mdb.min.js"></script>
+        <!-- Me JQuery -->
+        <script src="./assets/js/script.js"></script>
     </body>
 </html>

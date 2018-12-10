@@ -1,60 +1,243 @@
-/*FOOTER CSS*/
-/*Couleur footer (back et police)*/
+.cardy p {
+    font-size: 1.1rem;
+    padding-top: 100px;
+}
+
+/* Start Navbar */
+nav img {
+    background-color: white;
+    height: 50px;
+    border-radius: 1rem;
+}
+
+nav {
+    width: 70%;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.ocordo-color {
+    background-color: #1e2c59;
+}
+/* End Navbar */
+
+/* Start Picture Presentation */
+#picture1 {
+    opacity: 0.7;
+    min-height: 400px;
+    background: url(../img/salon.jpg) no-repeat center center fixed;
+}
+/* End Picture Presentation */
+
+/* Start Contact */
+form label {
+    display: none;
+}
+
+#iframeContact {
+    width: 40%;
+    height: 50%;
+}
+
+@media (max-width: 770px) {
+    #iframeContact {
+        display: none;
+    }
+}
+/* End Contact */
+
+/* Start Gallery */
+.caption-text {
+    display: block;
+    background-color: rgba(255, 255, 255, .3);
+    position: absolute;
+    bottom: -13px;
+    width: 100%;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-weight: 500;
+    height: 100%;
+}
+
+.cardy {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.gallery {
+    column-count: 3;
+    column-width:33%;
+}
+
+.gallery p {
+    margin-top: 1rem;
+}
+
+.card {
+    min-height: 320px;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+.gallery img {
+    width: 100%;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+@media (max-width: 770px) {
+    .gallery {
+        column-count: 1;
+        column-width: 100%;
+    }
+    
+    .fluid-video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+/* End Gallery */
+
+/* Start Footer */
 .page-footer {
-  padding-top: 1.5rem;
+    padding-top: 1.5rem;
 }
- 
+
 .fcolor {
-  background-color:  #282727;
-  color:  #ffffff;
-  }
- 
-  a {
-  color: white;
-  text-decoration: none;
-  }
- 
-  a:hover {
-  color: white;
-  text-decoration: underline;
-  }
- 
-/*Radius bouton*/
+    background-color:  #1e2c59;
+    color:  #ffffff;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
 #btnrad {
-  border-radius: 10px;
+    border-radius: 10px;
 }
- 
+
 .btncolor {
-  background-color: #ea4335;
-  color: white;
+    background-color: #ea4335;
+    color: white;
 }
- 
- 
-/*Maps Google*/
- 
- 
- 
-/*Partie Social Media*/
- 
- 
-/*Couleur et forme transitions*/
+
+/* Start Maps Google */
 .tcolor {
-  background-color: #ffffff;
+    border-width: 3px; 
+    border-style: solid; 
+    border-image: linear-gradient(to bottom, white, rgba(0, 0, 0, 0)) 1 100%;
 }
- 
- 
+
 hr {
     display: block;
     margin-left: 400px;
-  margin-right: 400px;
+    margin-right: 400px;
 }
- 
-/*Mise en forme paragraphe*/
+
 .ptext {
-  text-align: left;
-  font-size: 0.8rem;
-  margin-bottom: 0;
+    text-align: left;
+    font-size: 0.8rem;
+    margin-bottom: 0;
 }
- 
- 
-/*FIN FOOTER CSS*/
+
+/* End Maps Google */
+/* End Footer */
+
+/* 404 Error */
+
+#notfound {
+    position: relative;
+    height: 100vh;
+    background: #030005;
+}
+
+#notfound .notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.notfound {
+    max-width: 767px;
+    width: 100%;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.notfound .notfound-404 {
+    position: relative;
+    height: 180px;
+    margin-bottom: 20px;
+    z-index: -1;
+}
+
+.notfound .notfound-404 h1 {
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    font-size: 224px;
+    font-weight: 900;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: -12px;
+    color: #030005;
+    text-transform: uppercase;
+    text-shadow: -1px -1px 0px #8400ff, 1px 1px 0px #ff005a;
+    letter-spacing: -20px;
+}
+
+
+.notfound .notfound-404 h2 {
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 110px;
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0px 2px 0px #8400ff;
+    letter-spacing: 13px;
+    margin: 0;
+}
+
+.notfound a {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #ff005a;
+    text-decoration: none;
+    border: 2px solid;
+    background: transparent;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.2s all;
+}
+
+.notfound a:hover {
+    color: #8400ff;
+}
+
+@media only screen and (max-width: 767px) {
+    .notfound .notfound-404 h2 {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .notfound .notfound-404 h1 {
+        font-size: 182px;
+    }
+}
