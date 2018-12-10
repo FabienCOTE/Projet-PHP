@@ -1,7 +1,6 @@
 <?php
 if (isset($_GET['page'])) {
     $page = intval(htmlspecialchars($_GET['page']));
-    echo $page;
 } else {
     $page = 0;
 }
@@ -15,7 +14,7 @@ $xml = simplexml_load_file($fichier);
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
         <!-- Material Design Bootsrap -->
         <link rel="stylesheet" href="assets/css/mdb.min.css" />
         <link rel="stylesheet" href="assets/css/style.css" />
@@ -64,7 +63,9 @@ $xml = simplexml_load_file($fichier);
                         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Menu</h5>
                         <ul class="list-unstyled">
                             <?php foreach ($xml->page as $pages) { ?>
-                                <li><a href="<?= $pages->attributes(); ?>"><?= $pages->menu; ?></a></li>
+                                <li>
+                                    <a href="<?= $pages->attributes(); ?>"><?= $pages->menu; ?></a>
+                                </li>
                             <?php } ?>
                         </ul>
                     </div>

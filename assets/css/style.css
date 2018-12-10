@@ -146,12 +146,10 @@ hr {
     font-size: 0.8rem;
     margin-bottom: 0;
 }
-
 /* End Maps Google */
 /* End Footer */
 
-/* 404 Error */
-
+/* Start 404 Error */
 #notfound {
     position: relative;
     height: 100vh;
@@ -241,3 +239,4 @@ hr {
         font-size: 182px;
     }
 }
+/* End 404 Error */
