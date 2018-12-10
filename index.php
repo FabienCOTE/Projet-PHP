@@ -32,7 +32,7 @@ $xml = simplexml_load_file($fichier);
                     <ul class="navbar-nav">
                         <?php foreach ($xml->page as $pages) { ?>
                             <li class="nav-item mr-3">
-                                <a class="nav-link" href="page<?= $pages->attributes() - 1; ?>.html"><?= $pages->menu; ?>
+                                <a class="nav-link" href="page<?= $pages->attributes() -1; ?>.html"><?= $pages->menu; ?>
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -64,7 +64,7 @@ $xml = simplexml_load_file($fichier);
                         <ul class="list-unstyled">
                             <?php foreach ($xml->page as $pages) { ?>
                                 <li>
-                                    <a href="<?= $pages->attributes(); ?>"><?= $pages->menu; ?></a>
+                                    <a href="page<?= $pages->attributes() -1; ?>.html"><?= $pages->menu; ?></a>
                                 </li>
                             <?php } ?>
                         </ul>
@@ -90,7 +90,7 @@ $xml = simplexml_load_file($fichier);
                                 </a>
                             </li>
                         </ul>
-                        <p class="ptext text-center">Made by Losers</p>
+                        <p class="ptext text-center">Made by Julien, Luc, Manu & Fabien</p>
                     </div>
                 </div>
             </div>
